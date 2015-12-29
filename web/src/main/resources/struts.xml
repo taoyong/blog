@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+        <!--<constant value="false" name="struts.enable.DynamicMethodInvocation"/>-->
+        <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+        <!--<constant value="true" name="struts.devMode"/>-->
+        <constant name="struts.objectFactory" value="spring"/>
+        <constant name="struts.objectFactory.spring.autoWire " value="type"/>
+        <!-- 将action托管给spring -->
+        <!--<constant name="struts.objectFactory" value="spring" />-->
+                <!--<package name="default" extends="struts-default" namespace="/">-->
+                <!--<default-action-ref name="index"/>-->
+                <!--<global-results>-->
+                        <!--<result name="erro">/WEB-INF/erro.jsp</result>-->
+                <!--</global-results>-->
+                <!--<global-exception-mappings>-->
+                        <!--<exception-mapping exception="java.lang.Error" result="erro"/>-->
+                <!--</global-exception-mappings>-->
+        <!--</package>-->
+        <!--<include file="login.xml"/>-->
+        <package name="login"  extends="struts-default"  namespace="/home">
+                <action name="*" method="{1}" class="action.LoginAction">
+                        <result name="success">/WEB-INF/views/home/login.jsp</result>
+                </action>
+        </package>
+        <package name="user"  extends="struts-default"  namespace="/user">
+                <action name="*" method="{1}" class="action.UserAction">
+                        <result name="add">/WEB-INF/views/success.jsp</result>
+                </action>
+        </package>
+</struts>

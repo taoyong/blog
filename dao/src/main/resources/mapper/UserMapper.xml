@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.taoyong.blog.mapper.user.UserMapper">
+
+    <resultMap id="userResultMap" type="User">
+        <id property="id" column="id"/>
+        <result property="userAccount" column="user_account" />
+        <result property="userType" column="user_type" />
+        <result property="created" column="created" />
+        <result property="modified" column="modified"/>
+    </resultMap>
+
+
+    <select id="getById" parameterType="int" resultMap="userResultMap">
+        select id,user_account,user_type, created,modified
+        from userInfo
+        where id=#{id}
+    </select>
+
+    <insert id="add" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+        insert into userInfo (user_account,user_type,created,modified)
+        values(#{userAccount},#{userType},#{created},#{modified})
+    </insert>
+
+    <!--<select id="getBySupervisorId" parameterType="int" resultMap="studentResultMap">-->
+        <!--select id s_id, name s_name, gender s_gender, major s_major, grade s_grade-->
+        <!--from student where supervisor_id = #{id}-->
+    <!--</select>-->
+  <!-- -->
+    <!--<select id="getSupervisor" parameterType="int" resultMap="supervisorResultMap">-->
+        <!--select-->
+        <!--id as t_id,name as t_name,gender as t_gender,title as t_title,research_area as t_research_area-->
+        <!--from teacher where id=#{id}-->
+    <!--</select>-->
+
+    <!--教师实体映射 -->
+    <!--<resultMap id="supervisorResultMap" type="Teacher">-->
+        <!--<id property="id" column="t_id" />-->
+        <!--<result property="name" column="t_name" />-->
+        <!--<result property="gender" column="t_gender" />-->
+        <!--<result property="researchArea" column="t_research_area" />-->
+        <!--<result property="title" column="t_title" />-->
+    <!--</resultMap>-->
+
+
+    <!--<insert id="add" parameterType="Student" useGeneratedKeys="true"-->
+            <!--keyProperty="id">-->
+        <!--insert into student(name,gender,major,grade)-->
+        <!--values(#{name},#{gender},#{major},#{grade})-->
+    <!--</insert>-->
+
+
+
+    <!--<update id="update" parameterType="Student">-->
+        <!--update student set-->
+        <!--name=#{name},-->
+        <!--gender=#{gender},-->
+        <!--major=#{major},-->
+        <!--grade=#{grade}-->
+        <!--where-->
+        <!--id=#{id}-->
+    <!--</update>-->
+
+    <!--<delete id="delete" parameterType="int">-->
+        <!--delete from student where-->
+        <!--id=#{id}-->
+    <!--</delete>-->
+
+</mapper>
