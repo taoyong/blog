@@ -6,7 +6,7 @@ package com.taoyong.blog.service;
 public interface SignTaskHandler {
 
     /**
-     * 定时签到任务
+     * 绛惧埌瀹氭椂浠诲姟
      */
     void signIn();
 }
